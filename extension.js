@@ -12,7 +12,7 @@ const Misc = Me.imports.misc;
 const Timer = Me.imports.timer;
 
 const DefaultTime = '20:00'
-const AlertSound = 'Polite.wav'
+const AlertSound = 'Bell.mp3'
 const AlertText = 'Breathing in, I welcome the community to the present moment.'
 
 class Extension {
