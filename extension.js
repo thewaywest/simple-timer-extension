@@ -11,6 +11,9 @@ const Me = imports.misc.extensionUtils.getCurrentExtension();
 const Misc = Me.imports.misc;
 const Timer = Me.imports.timer;
 
+const DefaultTime = '20:00'
+const AlertSound = 'Polite.wav'
+const AlertText = 'Breathing in, I welcome the community to the present moment.'
 
 class Extension {
    constructor() {
@@ -51,6 +54,7 @@ class Extension {
       // Timer Input Field            
       this.timerEntry = new St.Entry({
          name: 'time',
+         text: DefaultTime,
          primary_icon : new St.Icon({ icon_name : 'media-playback-start-symbolic', icon_size : 24 }),
          can_focus : true,
          hint_text: _("Enter countdown time..."),
@@ -137,7 +141,7 @@ class Extension {
    createTimerFinishedAlert() {
       // Play Audio
       let player = global.display.get_sound_player();
-      let soundFile = Gio.File.new_for_path(Me.dir.get_path() + "/sfx/Polite.wav");
+      let soundFile = Gio.File.new_for_path(Me.dir.get_path() + `/sfx/${AlertSound}`);
       player.play_from_file(soundFile, 'Alert', null);
       
       // Send Notification
